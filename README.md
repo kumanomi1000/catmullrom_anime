@@ -16,7 +16,9 @@ $m_k = \tau ( p_{k+1} - p_{k-1} )$<br>
 実行するとアニメーション表示され、各コマの画像 00.png～99.png が生成されます。<br>
 これらをFFmpegでマージしてモーションGIFを作成しました。<br>
 
+```
 ffmpeg -i %02d.png -filter_complex "[0:v] fps=25,scale=320:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" output.gif
+```
 
 FFmpegを用いたモーションGIF作成については以下を参考にしました。<br>
-[ffmpegでとにかく綺麗なGIFを作りたい](https://qiita.com/yusuga/items/ba7b5c2cac3f2928f040)
+[Qiita - ffmpegでとにかく綺麗なGIFを作りたい](https://qiita.com/yusuga/items/ba7b5c2cac3f2928f040)
